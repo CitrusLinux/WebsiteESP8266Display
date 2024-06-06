@@ -94,7 +94,7 @@ void handleRoot() {
   if (server.hasArg("newtext")) {
     text = server.arg("newtext");
     speed = server.arg("newspeed").c_str();
- /*   text = server.arg("newdirection"); */
+    direction = server.arg("direction").toInt();
     Display.displayClear();                                             // Clear the display
     Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[direction], speed.toInt());  // Scroll the new text
   }
@@ -102,15 +102,15 @@ void handleRoot() {
   if (server.hasArg("newspeed")) {
     speed = server.arg("newspeed").c_str();
     text = server.arg("newtext");
-    text = server.arg("direction");
+    direction = server.arg("direction").toInt();
     Display.displayClear();                                             // Clear the display
     Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[direction], speed.toInt());  //) Scroll the new text
   }
 
-  if (server.hasArg("newdirecton")) {
+  if (server.hasArg("directon")) {
     speed = server.arg("newspeed").c_str();
     text = server.arg("newtext");
-  /*  text = server.arg("newdirection"); */
+    direction = server.arg("direction").toInt();
     Display.displayClear();                                             // Clear the display
     Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[direction], speed.toInt());  // Scroll the new text
   }
