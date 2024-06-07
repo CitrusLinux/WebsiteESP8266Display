@@ -94,25 +94,25 @@ void handleRoot() {
   if (server.hasArg("newtext")) {
     text = server.arg("newtext");
     speed = server.arg("newspeed").c_str();
-    direction = server.arg("direction").toInt();
+    direction = server.arg("newdirection").toInt();
     Display.displayClear();                                             // Clear the display
-    Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[direction], speed.toInt());  // Scroll the new text
+    Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[newdirection], speed.toInt());  // Scroll the new text
   }
 
   if (server.hasArg("newspeed")) {
     speed = server.arg("newspeed").c_str();
     text = server.arg("newtext");
-    direction = server.arg("direction").toInt();
+    direction = server.arg("newdirection").toInt();
     Display.displayClear();                                             // Clear the display
-    Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[direction], speed.toInt());  //) Scroll the new text
+    Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[newdirection], speed.toInt());  //) Scroll the new text
   }
 
   if (server.hasArg("directon")) {
     speed = server.arg("newspeed").c_str();
     text = server.arg("newtext");
-    direction = server.arg("direction").toInt();
+    direction = server.arg("newdirection").toInt();
     Display.displayClear();                                             // Clear the display
-    Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[direction], speed.toInt());  // Scroll the new text
+    Display.displayScroll(text.c_str(), PA_RIGHT, dirARR[newdirection], speed.toInt());  // Scroll the new text
   }
 
   String webpage = "<html><body>";
@@ -125,7 +125,7 @@ void handleRoot() {
   webpage += "New Speed: <input type='text' name='newspeed' value='" + speed + "'>";
   webpage += "<input type='submit' value='Change'>";
   webpage += "<p> </p>";
-  webpage += "<label for=direction>Choose The Direction:</label> <select name=direction> <option value= 0>Left_To_Right</option> <option value=1>Right_To_Left</option> <option value=4>Random</option> <option value=2>Top_To_Bottom <option value=3>Bottom_To_Top</option> </select> <input type='submit' value='Change'>";
+  webpage += "<label for=direction>Choose The Direction:</label> <select name=newdirection> <option value= 0>Left_To_Right</option> <option value=1>Right_To_Left</option> <option value=4>Random</option> <option value=2>Top_To_Bottom <option value=3>Bottom_To_Top</option> </select> <input type='submit' value='Change'>";
   webpage += "</form>";
   webpage += "<p>Current text displayed: " + text + "</p>";
   webpage += "<p>Current speed: " + speed + "</p>";
